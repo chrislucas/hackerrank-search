@@ -55,28 +55,32 @@ public class KadaneAlgorithm {
                  * o indice k no array 'prefixSum' guarda o somatorio das (j)colunas
                  * e (k)linhas.
                  * O algoritmo comeca executando o somatorio da coluna j ate a N, onde
-                 * j = 0 N = numero de linhas. A cada passo do algoritmo j aumenta em 1
+                 * j = 0 N = numero de linhas. A cada passo do algoritmo j aumenta em 1,
                  * o que desloca o somatorio para a coluna da direita ate a ultima coluna
-                 * da matriz
+                 * da matriz.
                  * */
                 for (int k = 0; k < l; k++)
                     prefixSum[k] += matrix[k][j];
-
                 /**
-                 * Com o somatorio dos k elementos das (j-esima) coluna
-                 * usamos o algoritmo de kadane
+                 * prefixSum eh um array cujo indice k guarda
+                 * o somatorio dos numeros das  j colunas na k-esima linha
+                 * onde 'j' vai de 'i' ate o numero de colunas na matriz
+                 * e i vai de 0 ate o numero de linhas da matriz
                  * */
-
                 // retorna o intervalor i,j da soma maxima e a soma maxima [0],[1],[2]
                 long partial [] = kadane1dv2(prefixSum);
+                /**
+                 * intervalo(partial[0], partial[0]) com a soma maxima partial[2]
+                 * partial[0] - top, partial[1] bottom
+                 * */
                 if (answer[4] < partial[2]) {
                     // top, left
-                    answer[0] = partial[0];
+                    answer[0] = partial[0]; // top
                     answer[1] = i;  // left
                     // bottom right
-                    answer[2] = partial[1];
+                    answer[2] = partial[1]; // bottom
                     answer[3] = j; //right
-                    answer[4] = partial[2];
+                    answer[4] = partial[2]; // max sum
                 }
             }
         }
