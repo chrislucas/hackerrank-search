@@ -22,6 +22,7 @@ public class MaxSubarraySum {
         return lastMax;
     }
 
+
     private static long solver(long [] array, long M) {
         long currentMax = array[0] % M;
         long lastMax = array[0] % M;
