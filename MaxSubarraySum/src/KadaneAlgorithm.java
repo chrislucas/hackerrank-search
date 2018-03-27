@@ -25,7 +25,8 @@ public class KadaneAlgorithm {
                 currentIdx = i+1;
                 currentSum = 0;
             }
-            else if(currentSum > last[2]) {
+            // > || >= eis a questao
+            else if(currentSum >= last[2]) {
                 last[0] = currentIdx;
                 last[1] = i;
                 last[2] = currentSum;
@@ -70,8 +71,13 @@ public class KadaneAlgorithm {
                 // retorna o intervalor i,j da soma maxima e a soma maxima [0],[1],[2]
                 long partial [] = kadane1dv2(prefixSum);
                 /**
-                 * intervalo(partial[0], partial[0]) com a soma maxima partial[2]
-                 * partial[0] - top, partial[1] bottom
+                 * intervalo(partial[0], partial[1]) com a soma maxima partial[2]
+                 * partial[0] - top: O inicio do intervalo guarda o indice da linha
+                 * onde comecamos  a submatriz de soma maxima
+                 * partial[1] - bottom: O final do intervalo guarda o indice da coluna
+                 * onde encerramos a submatriz de soma maxima
+                 * O par (partial[0], i) corresponde a esquerda superior da submatriz
+                 * e o par (partial[1], j) corresponde a direita inferior da submatriz
                  * */
                 if (answer[4] < partial[2]) {
                     // top, left
@@ -85,38 +91,6 @@ public class KadaneAlgorithm {
             }
         }
         return answer;
-    }
-
-    private static long [] test2d(long [][] matrix) {
-        long last [] = new long [5],currentMax = 0;
-        last[0] = -1;
-        last[1] = -1;
-        last[2] = -1;
-        last[3] = -1;
-        last[4] = Integer.MIN_VALUE;
-        int currentI = 0,currentJ = 0;
-        int l = matrix.length;
-        for (int i = 0; i < matrix.length; i++) {
-            int c = matrix[i].length;
-            for (int j = 0; j<c; j++) {
-                currentMax += matrix[i][j];
-                if (currentMax < 0) {
-                    currentMax = 0;
-                    currentI = i;
-                    currentJ = j;
-                }
-                else if (currentMax > last[4]) {
-                    last[0] = i;
-                    last[1] = currentJ;
-                    last[2] = currentI;
-                    last[3] = j;
-                    last[4] = currentMax;
-                }
-            }
-
-        }
-
-        return last;
     }
 
     private static void test() {
@@ -135,7 +109,7 @@ public class KadaneAlgorithm {
                  ,{-4,-1,1,7}
             }
             ,{
-                {1,2,-1,-4}
+                 {1,2,-1,-4}
                 ,{-8,-3,4,2}
                 ,{3,8,10,1}
                 ,{-4,-1,1,7}
@@ -146,17 +120,23 @@ public class KadaneAlgorithm {
                 ,{3,0,10,1,3}
                 ,{-4,-1,1,7,-6}
             }
+            ,{
+                 {-1,-2,-1,-4}
+                ,{-8,-3,-4,-2}
+                ,{3,8,10,1}
+                ,{-4,-1,-1,-7}
+            }
             ,{{-1,-2,-1},{-8,-3,-4},{-3,-12,-10},{-4,-1,1}}
             ,{{1,1,1},{1,1,1},{1,1,1}}
             ,{{1,-1,1},{1,-1,1},{1,-1,1}}
             ,{{1,-1,-1},{1,-1,-1},{1,-1,-1}}
             ,{{-1,-1,1},{-1,-1,1},{-1,-1,1}}
             ,{{-1,1,-1},{-1,1,-1},{-1,1,-1}}
+            ,{{1,2},{8,3},{3,8},{4,1}}
+            ,{{-1,-2},{8,3},{3,8},{-4,-1}}
         };
-        int idx = 1;
-        long [] ans = test2d(matrix[idx]);
-        System.out.printf("(%d %d) (%d %d) %d\n",ans[0],ans[1],ans[2],ans[3],ans[4]);
-        ans = kadane2d(matrix[idx]);
+        int idx = 13;
+        long [] ans = kadane2d(matrix[idx]);
         System.out.printf("LT(%d %d) BR(%d %d) %d\n",ans[0],ans[1],ans[2],ans[3],ans[4]);
     }
 

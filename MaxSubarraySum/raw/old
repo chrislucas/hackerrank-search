@@ -1,0 +1,29 @@
+    private static long [] test2d(long [][] matrix) {
+        long last [] = new long [5],currentMax = 0;
+        last[0] = -1;
+        last[1] = -1;
+        last[2] = -1;
+        last[3] = -1;
+        last[4] = Integer.MIN_VALUE;
+        int currentI = 0,currentJ = 0;
+        int l = matrix.length;
+        for (int i = 0; i < matrix.length; i++) {
+            int c = matrix[i].length;
+            for (int j = 0; j<c; j++) {
+                currentMax += matrix[i][j];
+                if (currentMax < 0) {
+                    currentMax = 0;
+                    currentI = i;
+                    currentJ = j;
+                }
+                else if (currentMax > last[4]) {
+                    last[0] = currentI;
+                    last[1] = i;
+                    last[2] = currentJ;
+                    last[3] = j;
+                    last[4] = currentMax;
+                }
+            }
+        }
+        return last;
+    }

@@ -16,7 +16,7 @@ public class PrefixSum {
         return prefix;
     }
 
-    private static long maxSubArrayAllSets(long [] array, long m) {
+    private static long maxSumCalculatingPrefixSum(long [] array, long m) {
         long _max = array[0];
         long prefix [] = new long[array.length];
         prefix [0] = array[0];
@@ -29,8 +29,7 @@ public class PrefixSum {
         return _max;
     }
 
-
-    private static long maxSubArrayPrefixSum(long [] prefix, long m) {
+    private static long maxSubUsingPrefixSum(long [] prefix, long m) {
         long _max = 0;
         for (int i=1; i<prefix.length; i++) {
             for (int j=i-1; j>=0; j--) {
@@ -50,10 +49,10 @@ public class PrefixSum {
             ,{6,6,11,15,12,1}
         };
         long [] mod = {7, 7, 13};
-        int idx = 2;
+        int idx = 0;
         long [] prefix = modularPrefixSum(matrix[idx], mod[idx]);
-        long max = maxSubArrayAllSets(matrix[idx], mod[idx]);
-        max = maxSubArrayPrefixSum(prefix, mod[idx]);
+        //long max = maxSumCalculatingPrefixSum(matrix[idx], mod[idx]);
+        long max = maxSubUsingPrefixSum(prefix, mod[idx]);
         System.out.println("");
     }
 
