@@ -22,7 +22,8 @@ public class MaxSubarraySum {
         return lastMax;
     }
 
-    private static long solver(long [] array, long M) {
+
+    private static long modularSumSubsetArray(long [] array, long M) {
         long currentMax = array[0] % M;
         long lastMax = array[0] % M;
         for(int i=1; i<array.length; i++) {
@@ -33,12 +34,10 @@ public class MaxSubarraySum {
     }
 
     private static void test() {
-        long [][] matrix = {
-            {3,3,9,9,5}
-        };
+        long [][] matrix = {{3,3,9,9,5}};
         long [] mod = {7};
         int idx = 0;
-        System.out.println(solver(matrix[idx], mod[idx]));
+        System.out.println(modularSumSubsetArray(matrix[idx], mod[idx]));
     }
 
 
@@ -54,7 +53,7 @@ public class MaxSubarraySum {
                 for (int i = 0; tk.hasMoreTokens() ; i++) {
                     array[i] = Long.parseLong(tk.nextToken());
                 }
-                writer.printf("%d\n", solver(array, mod));
+                writer.printf("%d\n", modularSumSubsetArray(array, mod));
             }
         } catch (IOException ioex) {}
     }
