@@ -4,6 +4,8 @@
  * https://www.topcoder.com/community/data-science/data-science-tutorials/binary-search/
  * Boa explicacao sobre o que eh lowerbound and upperbound numa binary tree
  * https://stackoverflow.com/questions/28389065/difference-between-basic-binary-search-for-upper-bound-and-lower-bound
+ *
+ * https://codingblocks.com/resources/binary-search-upper-lower-bound/
  * */
 
 public class BinarySearch {
@@ -30,11 +32,13 @@ public class BinarySearch {
     private static int lowerBound(Comparable [] data, Comparable k) {
         int lo = 0;
         int hi = data.length - 1;
+        int an = -1;
         while (lo <= hi) {
             int mi = (hi - lo) / 2 + lo;
             Comparable p = data[mi];
-            if (p.compareTo(k) >= 0 && (mi == 0 || data[mi-1].compareTo(k) < 0)) {
-                return mi;
+            if (p.compareTo(k) == 0) {
+                an = mi;
+                hi = mi - 1;
             }
             else if(p.compareTo(k) > 0) {
                 hi = mi - 1;
@@ -43,17 +47,19 @@ public class BinarySearch {
                 lo = mi + 1;
             }
         }
-        return -1;
+        return an;
     }
 
     private static int upperBound(Comparable [] data, Comparable k) {
         int lo = 0;
         int hi = data.length - 1;
+        int an = -1;
         while (lo <= hi) {
             int mi = (hi - lo) / 2 + lo;
             Comparable p = data[mi];
-            if(p.compareTo(k) > 0 && (mi == 0 || data[mi-1].compareTo(k) < 1)) {
-                return mi;
+            if(p.compareTo(k) == 0) {
+                an = mi;
+                hi = mi - 1;
             }
             else if(p.compareTo(k) > 0) {
                 hi = mi - 1;
@@ -62,7 +68,7 @@ public class BinarySearch {
                 lo = mi + 1;
             }
         }
-        return -1;
+        return an;
     }
 
 
