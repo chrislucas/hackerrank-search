@@ -59,7 +59,7 @@ public class BinarySearch {
             Comparable p = data[mi];
             if(p.compareTo(k) == 0) {
                 an = mi;
-                hi = mi - 1;
+                lo = mi + 1;
             }
             else if(p.compareTo(k) > 0) {
                 hi = mi - 1;
@@ -83,7 +83,7 @@ public class BinarySearch {
         };
 
         int k [] = {5, 3, 8, 1, 20, 8};
-        int idx = 3;
+        int idx = 4;
 
         int bs = binarySearch(matrix[idx], k[idx]);
         System.out.println(bs);

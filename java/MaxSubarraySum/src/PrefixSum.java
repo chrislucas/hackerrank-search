@@ -89,7 +89,7 @@ public class PrefixSum {
             ,{6,6,11,15,12,1}
         };
         long [] mod = {7, 7, 13};
-        int idx = 0;
+        int idx = 2;
         //long [] prefix = modularPrefixSum(matrix[idx], mod[idx]);
         //long max1 = maxSumCalculatingPrefixSum(matrix[idx], mod[idx]);
         //long max2 = maxSubUsingPrefixSum(prefixSum(matrix[idx]), mod[idx]);
