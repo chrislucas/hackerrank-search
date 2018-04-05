@@ -31,7 +31,7 @@ public class PrefixSum {
 
     private static long maxSubUsingPrefixSum(long [] prefix, long m) {
         long _max = 0;
-        for (int i=1; i<prefix.length; i++) {
+        for (int i=0; i<prefix.length; i++) {
             for (int j=i-1; j>=0; j--) {
                 long cur = (prefix[i] - prefix[j] + m) % m;
                 _max = Math.max(_max, cur);
@@ -44,16 +44,16 @@ public class PrefixSum {
 
     public static void test() {
         long [][] matrix = {
-            {3,3,9,9,5}
+             {3,3,9,9,5}
             ,{7, 1, 3, 1, 4, 5, 1, 3, 6}
             ,{6,6,11,15,12,1}
         };
         long [] mod = {7, 7, 13};
         int idx = 0;
-        long [] prefix = modularPrefixSum(matrix[idx], mod[idx]);
-        //long max = maxSumCalculatingPrefixSum(matrix[idx], mod[idx]);
-        long max = maxSubUsingPrefixSum(prefix, mod[idx]);
-        System.out.println("");
+        //long [] prefix = modularPrefixSum(matrix[idx], mod[idx]);
+        //long max1 = maxSumCalculatingPrefixSum(matrix[idx], mod[idx]);
+        long max2 = maxSubUsingPrefixSum(prefixSum(matrix[idx]), mod[idx]);
+        System.out.println(max2);
     }
 
     public static void main(String[] args) {

@@ -41,6 +41,12 @@ public class MaxSubarraySum {
     }
 
 
+    public static long solver(long [] array, long m) {
+        return 0;
+    }
+
+
+
     private static void run() {
         try {
             int queries = Integer.parseInt(reader.readLine());
@@ -53,7 +59,7 @@ public class MaxSubarraySum {
                 for (int i = 0; tk.hasMoreTokens() ; i++) {
                     array[i] = Long.parseLong(tk.nextToken());
                 }
-                writer.printf("%d\n", modularSumSubsetArray(array, mod));
+                writer.printf("%d\n", solver(array, mod));
             }
         } catch (IOException ioex) {}
     }
