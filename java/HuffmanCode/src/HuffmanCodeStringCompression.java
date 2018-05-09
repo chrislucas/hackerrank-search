@@ -100,7 +100,7 @@ public class HuffmanCodeStringCompression {
         return frequency;
     }
 
-    private static PriorityQueue<Node> getPriorityQueue(HashMap<Character, Node> frequency) {
+    private static PriorityQueue<Node> sortFrequency(HashMap<Character, Node> frequency) {
         return new PriorityQueue<>(frequency.values());
     }
 
@@ -121,7 +121,7 @@ public class HuffmanCodeStringCompression {
     }
 
     private static String encode(String str) {
-        root = createTree(getPriorityQueue(getFrequency(str)));
+        root = createTree(sortFrequency(getFrequency(str)));
         Map<Character, String> code = createCode();
         StringBuilder sb = new StringBuilder();
         for (char c : str.toCharArray()) {
@@ -151,6 +151,7 @@ public class HuffmanCodeStringCompression {
     public static void main(String[] args) {
         String str [] = {
             "Ana ama sua nana, sua mana e banana"
+            ,"AAAAAABBBBBCCCCDDDEEF"
             ,"christoffer"
             ,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Phasellus scelerisque feugiat nunc ac vulputate. Praesent " +

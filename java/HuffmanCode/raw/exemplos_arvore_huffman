@@ -1,0 +1,62 @@
+https://pt.wikipedia.org/wiki/Codifica%C3%A7%C3%A3o_de_Huffman
+https://inf.ufes.br/~pdcosta/ensino/2009-1-estruturas-de-dados/material/CodificacaoHuffman.pdf
+exemplo 1
+AAAAAABBBBBCCCCDDDEEF
+
+A:6
+B:5
+C:4
+D:3
+E:2
+F:1
+1)
+E+F=3
+
+A:6
+B:5
+C:4
+D:3
+E+F=3
+
+2)
+D+(E+F)=6
+
+A:6
+D+(E+F):6
+B:5
+C:4
+
+3)
+B+C=9
+
+B+C:9
+A:6
+D+(E+F):6
+
+4)
+A+(D+(E+F))=12
+
+A+(D+(E+F)):12
+B+C:9
+
+5)
+B+C+(A+(D+(E+F)))=21
+
+B+C+(A+(D+(E+F))) -> B+C e A+(D+(E+F))
+B+C -> B, C
+
+
+
+
+exemplo 2
+"Ana ama sua nana, sua mana e banana"
+A:1
+b:1
+e:1
+,:1
+s:2
+u:2
+a:12
+espaco:7
+m:2
+n:6
