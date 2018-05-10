@@ -60,14 +60,27 @@ public class HuffmanCodeStringCompression {
             return getFrequency() - o.getFrequency();
         }
 
-        // a codificacao basicamente transforma o texto em uma string de 0's e 1's
-        private void fill(Map<Character, String> map, String str) {
+        /**
+         * a codificacao basicamente transforma o texto em uma string de 0's e 1's
+         *
+         * o metodo abaixo percorre usando uma busca em profundidade (DFS) a arvore de huffman, a partir do nó raiz ate os nos folhas.
+         * Quando encontra um no folha, adiciona ao mapa de simbolos uma chave e um valor.
+         * A chave é o simbolo que esta contido no nó folha alcançado e o valor é o código gerado ao percorrer
+         * a árvore fazendo a DFS,
+         *
+         * Quando percorremos uma aresta da esquerda adcionamos o simbolo 0 e para direita 1
+         * assim o mapa vai ter chaves cujos valores serao a concatenacao de 0's e 1's, conforme
+         * percorre-se a arvore
+         *
+         * */
+
+        private void fillSymbolCodeMap(Map<Character, String> symbolCodeMap, String code) {
             if (isLeaf()) {
-                map.put(getSymbol(), str);
+                symbolCodeMap.put(getSymbol(), code);
                 return;
             }
-            lf.fill(map, str + l);
-            ri.fill(map, str + r);
+            lf.fillSymbolCodeMap(symbolCodeMap, code + l);
+            ri.fillSymbolCodeMap(symbolCodeMap, code + r);
         }
 
         @Override
@@ -116,7 +129,7 @@ public class HuffmanCodeStringCompression {
 
     private static Map<Character, String> createCode() {
         Map<Character, String> codeMap = new TreeMap<>();
-        root.fill(codeMap, "");
+        root.fillSymbolCodeMap(codeMap, "");
         return codeMap;
     }
 
