@@ -74,19 +74,26 @@ public class HuffmanCodeStringCompression {
          *
          * */
 
-        private void fillSymbolCodeMap(Map<Character, String> symbolCodeMap, String code) {
+        private void createSymbolCodeMap(Map<Character, String> symbolCodeMap) {
+            createSymbolCodeMap(symbolCodeMap, "");
+        }
+
+        private void createSymbolCodeMap(Map<Character, String> symbolCodeMap, String code) {
             if (isLeaf()) {
                 symbolCodeMap.put(getSymbol(), code);
                 return;
             }
-            lf.fillSymbolCodeMap(symbolCodeMap, code + l);
-            ri.fillSymbolCodeMap(symbolCodeMap, code + r);
+            lf.createSymbolCodeMap(symbolCodeMap, code + l);
+            ri.createSymbolCodeMap(symbolCodeMap, code + r);
         }
 
         @Override
         public String toString() {
-            return String.format("Simbolo %s: Frequencia: %d Nó: %s"
-                    , symbol == '\n' ? "\\n" : String.valueOf(symbol), frequency, isLeaf() ? "Folha" : "Raiz");
+            return String.format("Simbolo '%s': Frequencia: %d Nó: %s"
+                    , symbol == '\n' ? "\\n" : String.valueOf(symbol)
+                    , frequency
+                    , isLeaf() ? "Folha" : "Raiz"
+            );
         }
 
         @Override
@@ -102,7 +109,7 @@ public class HuffmanCodeStringCompression {
 
     private static Node root;
 
-    private static HashMap<Character, Node> getFrequency(String str) {
+    private static HashMap<Character, Node> getSortedFrequency(String str) {
         HashMap<Character, Node> frequency = new HashMap<>();
         for (char c : str.toCharArray()) {
             if (!frequency.containsKey(c)) {
@@ -113,7 +120,7 @@ public class HuffmanCodeStringCompression {
         return frequency;
     }
 
-    private static PriorityQueue<Node> sortFrequency(HashMap<Character, Node> frequency) {
+    private static PriorityQueue<Node> getSortedFrequency(HashMap<Character, Node> frequency) {
         return new PriorityQueue<>(frequency.values());
     }
 
@@ -127,20 +134,21 @@ public class HuffmanCodeStringCompression {
         return queue.poll();
     }
 
-    private static Map<Character, String> createCode() {
-        Map<Character, String> codeMap = new TreeMap<>();
-        root.fillSymbolCodeMap(codeMap, "");
-        return codeMap;
-    }
-
     private static String encode(String str) {
-        root = createTree(sortFrequency(getFrequency(str)));
-        Map<Character, String> code = createCode();
-        StringBuilder sb = new StringBuilder();
+        root = createTree(getSortedFrequency(getSortedFrequency(str)));
+        Map<Character, String> symbolCodeMap = new LinkedHashMap<>();
+        root.createSymbolCodeMap(symbolCodeMap);
+        StringBuilder code = new StringBuilder();
+        /**
+         * Substituir cada caracter pelo seu codigo correspondente
+         * a vantagem está que cada caracter na tabela ascii utiliza
+         * 8 bits. Codificando os caracteres usando 0's e 1's nos podemos
+         * reduzir para N bits onde N é o numero de 0's e 1's do texto codificados
+         * */
         for (char c : str.toCharArray()) {
-            sb.append(code.get(c));
+            code.append(symbolCodeMap.get(c));
         }
-        return sb.toString();
+        return code.toString();
     }
 
     private static String decode(String encode) {
@@ -148,8 +156,7 @@ public class HuffmanCodeStringCompression {
             Node current = root;
             StringBuilder rs = new StringBuilder();
             for (char c : encode.toCharArray()) {
-                current = c == Node.l
-                        ? current.getLeft() : current.getRight();
+                current = (c == Node.l) ? current.getLeft() : current.getRight();
                 if (current.isLeaf()) {
                     rs.append(current.getSymbol());
                     current = root;
@@ -166,6 +173,7 @@ public class HuffmanCodeStringCompression {
             "Ana ama sua nana, sua mana e banana"
             ,"AAAAAABBBBBCCCCDDDEEF"
             ,"christoffer"
+            ,"banana"
             ,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
                 "Phasellus scelerisque feugiat nunc ac vulputate. Praesent " +
                 "venenatis tortor nec massa ullamcorper feugiat. Maecenas ac libero et " +
@@ -217,20 +225,26 @@ public class HuffmanCodeStringCompression {
                 "Integer id magna ultrices quam sagittis congue sit amet et odio. " +
                 "Vestibulum ante tellus, maximus sed magna ac, consectetur lacinia tellus. " +
                 "Phasellus fermentum sollicitudin mauris, eu"
+            , "In computer science and information theory, a Huffman code is a particular type\n" +
+                "of optimal prefix code that is commonly used for lossless data compression. The\n" +
+                "process of finding and/or using such a code proceeds by means of Huffman coding,\n" +
+                "an algorithm developed by David A. Huffman while he was a Ph.D. student at MIT,\n" +
+                "and published in the 1952 paper \"A Method for the Construction of\n" +
+                "Minimum-Redundancy Codes\"."
         };
-        int idx = 0;
+        int idx = 5;
         String e = encode(str[idx]);
-        int sizeNormalText = str[idx].length();
-        int sizeEncodeText = e.length();
+        int sizeNormalText = str[idx].length() * 8;
+        int sizeEncodedText = e.length();
         System.out.println(e);
         String message =
-                "Q. Caracteres no texto normal: %d.\n" +
-                "Q. Caracteres no texto codificado: %d\n" +
+                "Quantidade de bits no texto original: %d.\n" +
+                "Quantidade de bits no texto comprimido: %d\n" +
                 "Taxa de compressao: %f\n";
         System.out.printf(message
                 , sizeNormalText
-                , sizeEncodeText
-                , 1.0 - ((sizeEncodeText * 1.0) / (sizeNormalText * 1.0))
+                , sizeEncodedText
+                , 1.0 - ((sizeEncodedText * 1.0) / (sizeNormalText * 1.0))
         );
         System.out.println(decode(e));
     }
