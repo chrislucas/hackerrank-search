@@ -171,6 +171,7 @@ public class HuffmanCodeStringCompression {
     public static void main(String[] args) {
         String str [] = {
             "Ana ama sua nana, sua mana e banana"
+            ,"AAABBBCCC"
             ,"AAAAAABBBBBCCCCDDDEEF"
             ,"christoffer"
             ,"banana"
@@ -232,7 +233,7 @@ public class HuffmanCodeStringCompression {
                 "and published in the 1952 paper \"A Method for the Construction of\n" +
                 "Minimum-Redundancy Codes\"."
         };
-        int idx = 5;
+        int idx = 1;
         String e = encode(str[idx]);
         int sizeNormalText = str[idx].length() * 8;
         int sizeEncodedText = e.length();
