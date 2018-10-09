@@ -40,8 +40,8 @@
       <file leaf-file-name="MapUtils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MapUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="198">
+              <caret line="11" column="51" lean-forward="false" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -67,17 +67,17 @@
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1539103044221" expanded="true" signature="43676:43693" ph="..." />
-                <marker date="1539103044221" expanded="true" signature="43676:43711" ph="..." />
-                <marker date="1539103044221" expanded="true" signature="43676:43724" ph="..." />
-                <marker date="1539103044221" expanded="true" signature="43676:43739" ph="..." />
-                <marker date="1539103044221" expanded="true" signature="43774:44157" ph="..." />
-                <marker date="1539103044221" expanded="true" signature="43787:44142" ph="..." />
-                <marker date="1539103044221" expanded="true" signature="43822:44128" ph="..." />
-                <marker date="1539103044221" expanded="true" signature="43841:44113" ph="..." />
-                <marker date="1539103044221" expanded="true" signature="43915:44093" ph="..." />
-                <marker date="1539103044221" expanded="true" signature="43955:44059" ph="..." />
-                <marker date="1539103044221" expanded="true" signature="43976:44037" ph="..." />
+                <marker date="1539103047383" expanded="true" signature="45806:45823" ph="..." />
+                <marker date="1539103047383" expanded="true" signature="45806:45841" ph="..." />
+                <marker date="1539103047383" expanded="true" signature="45806:45854" ph="..." />
+                <marker date="1539103047383" expanded="true" signature="45806:45869" ph="..." />
+                <marker date="1539103047383" expanded="true" signature="45904:46287" ph="..." />
+                <marker date="1539103047383" expanded="true" signature="45917:46272" ph="..." />
+                <marker date="1539103047383" expanded="true" signature="45952:46258" ph="..." />
+                <marker date="1539103047383" expanded="true" signature="45971:46243" ph="..." />
+                <marker date="1539103047383" expanded="true" signature="46045:46223" ph="..." />
+                <marker date="1539103047383" expanded="true" signature="46085:46189" ph="..." />
+                <marker date="1539103047383" expanded="true" signature="46106:46167" ph="..." />
               </folding>
             </state>
           </provider>
@@ -119,11 +119,11 @@
         <option value="$PROJECT_DIR$/src/MinMaxHeap.java" />
         <option value="$PROJECT_DIR$/raw/exemplos_arvore_huffman" />
         <option value="$PROJECT_DIR$/raw/links_para_estudo" />
-        <option value="$PROJECT_DIR$/src/MapUtils.java" />
         <option value="$PROJECT_DIR$/src/HuffmanCodeStringCompression.java" />
         <option value="$PROJECT_DIR$/src/HuffamanCode.java" />
         <option value="$PROJECT_DIR$/src/HuffmanCode.java" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/src/MapUtils.java" />
       </list>
     </option>
   </component>
@@ -360,7 +360,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="REPL" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Leiningen" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -787,25 +787,25 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1539103044221" expanded="true" signature="43676:43693" ph="..." />
-            <marker date="1539103044221" expanded="true" signature="43676:43711" ph="..." />
-            <marker date="1539103044221" expanded="true" signature="43676:43724" ph="..." />
-            <marker date="1539103044221" expanded="true" signature="43676:43739" ph="..." />
-            <marker date="1539103044221" expanded="true" signature="43774:44157" ph="..." />
-            <marker date="1539103044221" expanded="true" signature="43787:44142" ph="..." />
-            <marker date="1539103044221" expanded="true" signature="43822:44128" ph="..." />
-            <marker date="1539103044221" expanded="true" signature="43841:44113" ph="..." />
-            <marker date="1539103044221" expanded="true" signature="43915:44093" ph="..." />
-            <marker date="1539103044221" expanded="true" signature="43955:44059" ph="..." />
-            <marker date="1539103044221" expanded="true" signature="43976:44037" ph="..." />
+            <marker date="1539103047383" expanded="true" signature="45806:45823" ph="..." />
+            <marker date="1539103047383" expanded="true" signature="45806:45841" ph="..." />
+            <marker date="1539103047383" expanded="true" signature="45806:45854" ph="..." />
+            <marker date="1539103047383" expanded="true" signature="45806:45869" ph="..." />
+            <marker date="1539103047383" expanded="true" signature="45904:46287" ph="..." />
+            <marker date="1539103047383" expanded="true" signature="45917:46272" ph="..." />
+            <marker date="1539103047383" expanded="true" signature="45952:46258" ph="..." />
+            <marker date="1539103047383" expanded="true" signature="45971:46243" ph="..." />
+            <marker date="1539103047383" expanded="true" signature="46045:46223" ph="..." />
+            <marker date="1539103047383" expanded="true" signature="46085:46189" ph="..." />
+            <marker date="1539103047383" expanded="true" signature="46106:46167" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MapUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="198">
+          <caret line="11" column="51" lean-forward="false" selection-start-line="11" selection-start-column="51" selection-end-line="11" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

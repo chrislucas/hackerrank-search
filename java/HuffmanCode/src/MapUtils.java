@@ -10,7 +10,6 @@ public class MapUtils {
         list.sort(Map.Entry.comparingByValue());
         for (Map.Entry<K, V> pair : list)
             rs.put(pair.getKey(), pair.getValue());
-
         return rs;
     }
 
