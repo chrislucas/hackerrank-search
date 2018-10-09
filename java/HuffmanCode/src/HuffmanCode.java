@@ -157,9 +157,11 @@ public class HuffmanCode {
                 "Vestibulum ante tellus, maximus sed magna ac, consectetur lacinia tellus. " +
                 "Phasellus fermentum sollicitudin mauris, eu"
         };
-        int idx = 0;
+        int idx = 1;
         String encode = encode(str[idx]);
-        System.out.printf("%d %d\n", encode.length(), str[idx].length());
+        String decode = decode(encode);
+        System.out.printf("Original size: %d\nSize String encoded: %d\nSize String decoded: %d\n"
+                , str[idx].length(), encode.length(), decode.length());
         System.out.println(encode);
         System.out.println(str[idx]);
 
